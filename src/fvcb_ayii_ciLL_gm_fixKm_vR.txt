@@ -1,0 +1,49 @@
+model {
+		for ( i in 1 : numPts) {
+			Aobs[i] ~ dnorm(muA[i],taoA)
+			yiiobs[i] ~ dnorm(muyii[i],taoyii)
+
+			#muA[i]<-W[i]*(1-Gstar/Cc[i])-Resp
+			#W[i]<-min(Wc[i],Wj[i]);
+			#Wc[i]<-Vcmax*Cc[i]/(Cc[i]+Km)
+			#Wj[i]<-J*Cc[i]/(4*Cc[i]+8*Gstar)
+			Ac[i] <- 1/2 * (-eqnb1[i] - sqrt(pow(eqnb1[i], 2) - 4 * eqnc1[i]))
+			eqnb1[i] <- -(1 / rm * (Ci[i] + Km) + Vcmax - Resp)
+			eqnc1[i] <- 1 / rm * ( Vcmax * (Ci[i] - Gstar) - Resp * (Km + Ci[i]));
+			Aj[i] <- 1/2 * (-eqnb2[i] - sqrt(pow(eqnb2[i], 2) - 4 * eqnc2[i]))
+			eqnb2[i] <- -(1 / rm * (Ci[i] + 2 * Gstar) + Jpts[i] / 4 - Resp)
+			eqnc2[i] <- 1 / rm * (Jpts[i] / 4 * (Ci[i] - Gstar) - Resp * (2 * Gstar + Ci[i]));
+
+			tmpmuA1[i] <- min(Ac[i], Aj[i])
+			tmpmuA2[i] <- max(Ac[i], Aj[i])
+			muA[i] <- step(tmpmuA1[i] + Resp) * tmpmuA1[i] + (1 - step(tmpmuA1[i] + Resp)) * tmpmuA2[i]
+
+			Cc[i] <- Ci[i] - muA[i] * rm
+
+			muyii[i] <- min(Vcmax * (4 * Cc[i] + 8 * Gstar) / (Cc[i] + Km) / PPFDabsspts[i], Jpts[i] / PPFDabsspts[i])
+		}
+	
+	for( k in 1 : numPPFD ) {
+        J[k] ~ dunif(0,400)
+    }
+
+    for ( i in 1:numPts){
+        Jpts[i] <- J[PPFDidx[i]]
+        PPFDabsspts[i] <- PPFD[PPFDidx[i]] * s
+    }
+	
+    sigA ~ dunif(0, 5)
+    taoA <- 1 / (sigA * sigA)
+    sigyii ~ dunif(0, 0.5)
+    taoyii <- 1 / (sigyii * sigyii)
+    gm <- 1/rm
+
+    Vcmax ~ dunif(0, 200)
+    #J ~ dunif(0, 400)
+    Resp ~ dunif(-10, 10)
+    #Km ~ dunif(0, 2000)
+    Gstar ~ dunif(0, 100)
+    rm ~ dunif(0.01, 100)
+    s ~ dunif(0.2, 1)
+
+}
