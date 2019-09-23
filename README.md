@@ -4,7 +4,7 @@
 With concurrent measurements of An-Ci and Y(II)-Ci data, posterior distribution of photosynthetic parameters in Farquhar-von Caemmerer-Berry (FvCB) model is calculated with a software called [JAGS (Just Another Gibbs Sampler).](http://mcmc-jags.sourceforge.net/) This note book provides the entire workflow for the implementation of Bayesian estimation.
 
 **[Reference]**
-Xiao et al., (2019) Uncertainty of photosynthetic parameter estimation of C3 leaves: a Bayesian approach. (under preparation)
+Xiao Y, Hepworth C, Sloan J, Fleming AJ, Chen XY, Zhu X-G. (2019) Uncertainty of photosynthetic parameter estimation of C3 leaves: a Bayesian approach. (under preparation)
 
 ## Getting Started
 
@@ -58,7 +58,8 @@ This is version 1 released on Sep. 21th 2019.
 
 ## Authors
 
-* **Yi Xiao** - *xiaoyi@sippe.ac.cn* - [https://github.com/xiaoyizz78](https://github.com/xiaoyizz78)
+* code by **Yi Xiao** - *xiaoyi@sippe.ac.cn* - [https://github.com/xiaoyizz78](https://github.com/xiaoyizz78)
+* data by **Chris Hepworth & Jen Sloan**
 
 ## License
 
