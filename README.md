@@ -67,14 +67,14 @@ This is version 1 released on Sep. 21th 2019.
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
 
 ## FAQs
-1) How long this Bayesian estimation will take?
-Running time is affeced by the size of input data, number of Markov chains conducted and number of iterations of each Markov chain. 
-On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 53s, while Bayesian estimation on each replication from the same input file took 10s.
-Besides, "Step3.2-plot bivariate posterior distribution" and "Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution" also take a while.
-There is a round circle on the top-right of the Jupyter Notebook, indicating the kernel is busy or idle. Move the mouse over that circle, you will see the status of kernel. 
+1) How long this Bayesian estimation will take?  
+Running time is affeced by the size of input data, number of Markov chains conducted and number of iterations of each Markov chain.   
+On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 53s, while Bayesian estimation on each replication from the same input file took 10s.  
+Besides, "Step3.2-plot bivariate posterior distribution" and "Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution" also take a while.  
+There is a round circle on the top-right of the Jupyter Notebook, indicating the kernel is busy or idle. Move the mouse over that circle, you will see the status of kernel.   
 
-2) Cannot open "FvCB_JAGS.ipynb" on Github?
-Jupyter Notebook (*.ipynb) can be viewed directly on Github without downloading the code or installing any software. But sometimes, you will get messages such as _"Sorry, something went wrong. Reload?"_
-This is a temperary issue with Github notebook viewing tools. One solution is use another online notebook viewer
--- open [https://nbviewer.jupyter.org/](https://nbviewer.jupyter.org/)
--- paste the Github link of notebook (e.g [https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb](https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb)), and click "Go!".
+2) Cannot open "FvCB_JAGS.ipynb" on Github?  
+Jupyter Notebook (*.ipynb) can be viewed directly on Github without downloading the code or installing any software. But sometimes, you will get messages such as _"Sorry, something went wrong. Reload?"_  
+This is a temperary issue with Github notebook viewing tools. One solution is use another online notebook viewer  
+-- open [https://nbviewer.jupyter.org/](https://nbviewer.jupyter.org/)  
+-- paste the Github link of notebook (e.g [https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb](https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb)), and click "Go!".  
