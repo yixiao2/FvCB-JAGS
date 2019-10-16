@@ -12,7 +12,7 @@ FunJAGSFvCBgm <- function(IPT.Ci, IPT.Q, IPT.A, IPT.yii, PPFDdetected, JAGS.fixe
     # IPT.yii: input obs yii; vector; corresponding to IPT.Ci
     # PPFDdetected: light levels, to keep a consistent J[n] among JAGS with different replications
     # JAGS.fixedpar: configure prefixed parameters during estimation
-    # JAGS.fixedval: configure prior noninformative range and initial value for the rest of parameters
+    # JAGS.ini: configure n.chain, n.burnin, n.iter and n.thin for JAGS
     #
     # Returns:
     # jagsfit.p from jags.parallel()
@@ -34,7 +34,7 @@ FunJAGSFvCBgm <- function(IPT.Ci, IPT.Q, IPT.A, IPT.yii, PPFDdetected, JAGS.fixe
     PPFD <- PPFDdetected
     numPPFD <- length(PPFDdetected)
     # Km <- 535.3270
-    for (loop in length(names(JAGS.fixedpar))) {
+    for (loop in seq_along(JAGS.fixedpar)) {
         assign(names(JAGS.fixedpar)[loop], JAGS.fixedpar[[loop]])
     }
     
@@ -54,12 +54,21 @@ FunJAGSFvCBgm <- function(IPT.Ci, IPT.Q, IPT.A, IPT.yii, PPFDdetected, JAGS.fixe
              "rm" = 1,
              "s" = 0.85*0.5)
     }
+    
+    for (loop in seq_along(JAGS.ini)) {
+        assign(names(JAGS.ini)[loop], JAGS.ini[[loop]])
+    }
+    
     #===============================#
     # RUN jags and postprocessing   #
     #===============================#
+    #jagsfit.p <- jags.parallel(data = jags.data, inits = jags.inits, jags.params,
+    #                           model.file="./src/fvcb_ayii_ciLL_gm_fixKm_vR.txt",
+    #                           n.chains = 3, n.burnin = 10000, n.iter = 20000, n.thin = 1, 
+    #                           DIC = TRUE, working.directory = NULL, jags.seed = 123)
     jagsfit.p <- jags.parallel(data = jags.data, inits = jags.inits, jags.params,
                                model.file="./src/fvcb_ayii_ciLL_gm_fixKm_vR.txt",
-                               n.chains = 3, n.burnin = 10000, n.iter = 20000, n.thin = 1, 
+                               n.chains = CFG.nchain, n.burnin = CFG.nburnin, n.iter = CFG.niter, n.thin = CFG.nthin, 
                                DIC = TRUE, working.directory = NULL, jags.seed = 123)
 }
 

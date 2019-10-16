@@ -5,7 +5,7 @@
 With concurrent measurements of An-Ci and Y(II)-Ci data, posterior distribution of photosynthetic parameters in a Farquhar-von Caemmerer-Berry (FvCB) model is calculated with software called [JAGS (Just Another Gibbs Sampler).](http://mcmc-jags.sourceforge.net/) This note book provides the entire workflow for the implementation of the Bayesian estimation.
 
 **[Reference]**
-Xiao Y, Hepworth C, Sloan J, Fleming AJ, Chen XY, Zhu X-G. (2019) Uncertainty of photosynthetic parameter estimation of C3 leaves: a Bayesian approach. (under preparation)
+Xiao Y, Hepworth C, Sloan J, Osborne CP, Fleming AJ, Chen XY, Zhu X-G. (2019) Uncertainty of photosynthetic parameter estimation of C3 leaves: a Bayesian approach. (under preparation)
 
 ## Getting Started
 
@@ -65,3 +65,16 @@ This is version 1 released on Sep. 21th 2019.
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
+
+## FAQs
+1) How long this Bayesian estimation will take?
+Running time is affeced by the size of input data, number of Markov chains conducted and number of iterations of each Markov chain. 
+On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 53s, while Bayesian estimation on each replication from the same input file took 10s.
+Besides, "Step3.2-plot bivariate posterior distribution" and "Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution" also take a while.
+There is a round circle on the top-right of the Jupyter Notebook, indicating the kernel is busy or idle. Move the mouse over that circle, you will see the status of kernel. 
+
+2) Cannot open "FvCB_JAGS.ipynb" on Github?
+Jupyter Notebook (*.ipynb) can be viewed directly on Github without downloading the code or installing any software. But sometimes, you will get messages such as _"Sorry, something went wrong. Reload?"_
+This is a temperary issue with Github notebook viewing tools. One solution is use another online notebook viewer
+-- open [https://nbviewer.jupyter.org/](https://nbviewer.jupyter.org/)
+-- paste the Github link of notebook (e.g [https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb](https://github.com/xiaoyizz78/FvCB-JAGS/blob/master/FvCB_JAGS.ipynb)), and click "Go!".
