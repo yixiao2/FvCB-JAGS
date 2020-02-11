@@ -1,18 +1,16 @@
-
-
 # Bayesian estimation of photosynthetic parameters in a Farquhar-von Caemmerer-Berry model
 
-With concurrent measurements of An-Ci and Y(II)-Ci data, posterior distribution of photosynthetic parameters in a Farquhar-von Caemmerer-Berry (FvCB) model is calculated with software called [JAGS (Just Another Gibbs Sampler).](http://mcmc-jags.sourceforge.net/) This note book provides the entire workflow for the implementation of the Bayesian estimation.
+With concurrent measurements of A<sub>n</sub>-C<sub>i</sub> and Y(II)-C<sub>i</sub> data, posterior distribution of photosynthetic parameters in a Farquhar-von Caemmerer-Berry (FvCB) model is calculated with software called [JAGS (Just Another Gibbs Sampler).](http://mcmc-jags.sourceforge.net/) This notebook provides the entire workflow for the implementation of the Bayesian estimation.
 
 **[Reference]**
 Xiao Y, Hepworth C, Sloan J, Osborne CP, Fleming AJ, Chen XY, Zhu X-G. (2019) Uncertainty of photosynthetic parameter estimation of C3 leaves: a Bayesian approach. (under preparation)
 
 ## Getting Started
 
-This workflow is written in [Jupyter notebook](https://jupyter.org/) which is an open-source software to support interactive data science. Both Python and R can be used as the coding language (here we use R), meanwhile instructions or comments along with the workflow is written in Markdown.
+This workflow is written in [Jupyter notebook](https://jupyter.org/), which is an open-source software to support interactive data science. Both Python and R can be used as the coding language (here we use R), meanwhile instructions or comments alongside the workflow are written in Markdown.
 
-### Prerequisites
-Here we used a laptop with windows 10 system. A similar installation pipeline should work with MacOS and Linux.
+### - Prerequisites
+Here we used a laptop with the Windows 10 operating system. A similar installation pipeline should work with MacOS and Linux.
 
 1. R-3.6.1:
 Download R from [https://www.r-project.org/](https://www.r-project.org/) and install.
@@ -29,23 +27,34 @@ A recommended distribution of Jupyter notebook is [Anaconda](https://www.anacond
 4. JAGS (Just Another Gibbs Sampler):
 Go to [http://mcmc-jags.sourceforge.net/](http://mcmc-jags.sourceforge.net/), download and install it.
 
-### Installing
+### - Installing
 
 1. Click the "Clone or download" button on this github webpage, choose "Download ZIP".
 2. Unzip the file in your computer.
-3. Reopen Anaconda prompt, change directory to the unzipped folder. e.g. ```cd "C:\Users\xiaoy\Documents\JAGSFvCB"```, hit the enter key.
-4. Type ```jupyter notebook```, hit the enter key.
-5. Automatically, your brower (IE, Chrome or Firefox etc) will open a new tab at ```http://localhost:8888/tree```.
-6. Click ```FvCB_JAGS.ipynb``` to open the demo
 
-## Running the demos
+### - Lauching the Bayesian parameter estimation tool
+1. Open Anaconda prompt, change directory to the unzipped folder. e.g. ```cd "C:\Users\xiaoy\Documents\JAGSFvCB"```, hit the enter key.
+2. Type ```jupyter notebook```, hit the enter key.
+3. Automatically, your brower (IE, Chrome or Firefox etc) will open a new tab at ```http://localhost:8888/tree```.
+4. Click ```FvCB_JAGS.ipynb``` to open the Bayesian parameter estimation tool.
+
+## Running
+
+### - Running the Bayesian parameter estimation tool with demo datasets
 
 Two sets of data are included in the folder.
 - "syntheticdata0827.csv" is the synthetic data from FvCB model used in the manuscript
 - "expdata0827.csv" is the experimental measurements of IR64 used in the manuscript 
-- Demo "FvCB_JAGS.ipynb" illustrate the Bayesian estimation with "expdata0827.csv". The input data file can be changed in *Step 1.1 Load data*.
-- Users can run this note book cell by cell. Just left click the cell with the code, and then click the "Run" button on the top.
-- Users can also run this note book at once, using "Cell -> Run All".
+- Demo "FvCB_JAGS.ipynb" illustrates the Bayesian estimation with "expdata0827.csv". The input data file can be changed in *Step 1.1 Load data*.
+- Users can run this notebook cell by cell. Just left click the cell with the code, and then click the "Run" button on the top.
+- Users can also run this notebook at once, using "Cell -> Run All".
+
+### - Running the Bayesian parameter estimation tool with your own dataset
+
+- Ensure your data is saved in the correct format
+- Save to the ```data``` folder within the ```JAGSFvCB``` folder on your computer
+- Change the file name in *Step 1.1 Load data*
+- Run the cells as above 
 
 ## Built With
 
@@ -60,20 +69,20 @@ This is version 1 released on Sep. 21th 2019.
 ## Authors
 
 * code by **Yi Xiao** - *xiaoyi@sippe.ac.cn* - [https://github.com/xiaoyizz78](https://github.com/xiaoyizz78)
-* data by **Chris Hepworth & Jen Sloan**
+* data by **Jen Sloan**
 
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
 
 ## FAQs
-1) How long this Bayesian estimation will take?  
-Running time is affeced by the size of input data, number of Markov chains conducted and number of iterations of each Markov chain.   
+**1) How long will this Bayesian estimation take?**
+Running time is affeced by the size of input data, number of Markov chains conducted, the number of iterations of each Markov chain and specifications of user's computer.   
 On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 53s, while Bayesian estimation on each replication from the same input file took 10s.  
-Besides, "Step3.2-plot bivariate posterior distribution" and "Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution" also take a while.  
-There is a round circle on the top-right of the Jupyter Notebook, indicating the kernel is busy or idle. Move the mouse over that circle, you will see the status of kernel.   
+*"Step3.2-plot bivariate posterior distribution"* and *"Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution"* also take a while.  
+There is a round circle on the top-right of the Jupyter Notebook, indicating whether the kernel is busy or idle. Move the mouse over that circle, you will see the status of the kernel.   
 
-2) Cannot open "FvCB_JAGS.ipynb" on Github?  
+**2) Cannot open "FvCB_JAGS.ipynb" on Github?**
 Jupyter Notebook (*.ipynb) can be viewed directly on Github without downloading the code or installing any software. But sometimes, you will get messages such as _"Sorry, something went wrong. Reload?"_  
 This is a temperary issue with Github notebook viewing tools. One solution is use another online notebook viewer  
 -- open [https://nbviewer.jupyter.org/](https://nbviewer.jupyter.org/)  
