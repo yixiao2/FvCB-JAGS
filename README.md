@@ -78,7 +78,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 ## FAQs
 **1) How long will this Bayesian estimation take?**
 Running time is affeced by the size of input data, number of Markov chains conducted, the number of iterations of each Markov chain and specifications of user's computer.   
-On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 53s, while Bayesian estimation on each replication from the same input file took 10s.  
+On a laptop with a cpu of Intel Xeon E-2276M (2.8GHz), Bayesian estimation with data of all replications from demo "./data/expdata0827.csv" took 50s, while Bayesian estimation on each replication from the same input file took 10s.  
 *"Step3.2-plot bivariate posterior distribution"* and *"Step3.3-Plot An-Ci and/or Y(II)-Ci curves predicted based on joint posterior distribution"* also take a while.  
 There is a round circle on the top-right of the Jupyter Notebook, indicating whether the kernel is busy or idle. Move the mouse over that circle, you will see the status of the kernel.   
 
