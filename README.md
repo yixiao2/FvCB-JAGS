@@ -68,7 +68,7 @@ This is version 1 released on Sep. 21th 2019.
 
 ## Authors
 
-* code by **Yi Xiao** - *xiaoyi@sippe.ac.cn* - [https://github.com/xiaoyizz78](https://github.com/xiaoyizz78)
+* code by **Yi Xiao** - *yixiao20@outlook.com* - [https://github.com/xiaoyizz78](https://github.com/xiaoyizz78)
 * data by **Jen Sloan**
 
 ## License
