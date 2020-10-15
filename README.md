@@ -40,6 +40,8 @@ Go to [http://mcmc-jags.sourceforge.net/](http://mcmc-jags.sourceforge.net/), do
 
 ## Running
 
+Script has been tested with Windows 10 and CentOS 7.5, MacOS has not been tested.
+
 ### - Running the Bayesian parameter estimation tool with demo datasets
 
 Two sets of data are included in the folder.
