@@ -62,10 +62,7 @@ FunJAGSFvCBgm <- function(IPT.Ci, IPT.Q, IPT.A, IPT.yii, PPFDdetected, JAGS.fixe
     #===============================#
     # RUN jags and postprocessing   #
     #===============================#
-    #jagsfit.p <- jags.parallel(data = jags.data, inits = jags.inits, jags.params,
-    #                           model.file="./src/fvcb_ayii_ciLL_gm_fixKm_vR.txt",
-    #                           n.chains = 3, n.burnin = 10000, n.iter = 20000, n.thin = 1, 
-    #                           DIC = TRUE, working.directory = NULL, jags.seed = 123)
+    # DIC = TRUE if want to output DIC
     jagsfit.p <- jags.parallel(data = jags.data, inits = jags.inits, jags.params,
                                model.file="./src/fvcb_ayii_ciLL_gm_fixKm_vR.txt",
                                n.chains = CFG.nchain, n.burnin = CFG.nburnin, n.iter = CFG.niter, n.thin = CFG.nthin, 
